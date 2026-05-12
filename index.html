@@ -822,6 +822,78 @@
 </section>
 
 
+<!-- ══ PROGRESS PHOTOS ══ -->
+<section class="hbu-full-width" style="padding-top:40px;padding-bottom:60px;">
+  <div class="hbu-full-inner">
+    <div class="section-label">Site Progress Photos</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+      <!-- Row 1 -->
+      <div class="img-card" onclick="openProgressLightbox(0)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-2.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress 2">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(1)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-1.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress 1">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(2)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-warehouse.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Warehouse">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="img-card" onclick="openProgressLightbox(3)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-loading-dock.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Loading Dock">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(4)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-humane-society.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Humane Society">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(5)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-truck-stop.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Truck Stop">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="img-card" onclick="openProgressLightbox(6)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-gas-pump.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Gas Pump">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(7)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-aerial-fast-food.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Aerial Fast Food">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+      <div class="img-card" onclick="openProgressLightbox(8)" style="aspect-ratio:16/9;cursor:pointer;">
+        <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-warehouse-aerial.png"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Progress Warehouse Aerial">
+        <div class="zoom-hint">⤢ FULLSCREEN</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Progress Lightbox -->
+<div id="progress-lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeProgressLightbox()">
+  <button onclick="closeProgressLightbox()" style="position:fixed;top:20px;right:28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10001;">✕</button>
+  <button onclick="progressLightboxNav(-1)" style="position:fixed;top:50%;left:16px;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:20px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10001;">‹</button>
+  <div style="max-width:95vw;max-height:92vh;display:flex;align-items:center;justify-content:center;">
+    <img id="progress-lightbox-img" src="" style="max-width:95vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 40px 120px rgba(0,0,0,0.8);" alt="">
+  </div>
+  <button onclick="progressLightboxNav(1)" style="position:fixed;top:50%;right:16px;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:20px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10001;">›</button>
+  <div id="progress-lightbox-counter" style="position:fixed;top:24px;left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:2px;"></div>
+</div>
+
 <!-- ══ FOOTER ══ -->
 <footer>
   <span>PICOR Commercial Real Estate Services · Cushman &amp; Wakefield Alliance · 5151 E Broadway Suite 115, Tucson AZ 85711</span>
@@ -1139,6 +1211,42 @@ document.addEventListener('keydown', e => {
 
 // ── INIT ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', loadMedia);
+
+// ── PROGRESS PHOTO LIGHTBOX ───────────────────────────────────────
+const PROGRESS_IMGS = [
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-2.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-1.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-warehouse.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-loading-dock.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-humane-society.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-truck-stop.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-gas-pump.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-aerial-fast-food.png',
+  'https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/SITE%20PLAN/progress-warehouse-aerial.png',
+];
+let progressLbIndex = 0;
+
+function openProgressLightbox(i) {
+  progressLbIndex = i;
+  document.getElementById('progress-lightbox-img').src = PROGRESS_IMGS[i];
+  document.getElementById('progress-lightbox-counter').textContent = (i + 1) + ' / ' + PROGRESS_IMGS.length;
+  document.getElementById('progress-lightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeProgressLightbox() {
+  document.getElementById('progress-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function progressLightboxNav(dir) {
+  openProgressLightbox((progressLbIndex + dir + PROGRESS_IMGS.length) % PROGRESS_IMGS.length);
+}
+document.addEventListener('keydown', e => {
+  if (document.getElementById('progress-lightbox').style.display === 'flex') {
+    if (e.key === 'Escape') closeProgressLightbox();
+    if (e.key === 'ArrowRight') progressLightboxNav(1);
+    if (e.key === 'ArrowLeft')  progressLightboxNav(-1);
+  }
+});
 </script>
 </body>
 </html>
