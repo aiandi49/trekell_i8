@@ -223,43 +223,67 @@
   .city-dist { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 1px; }
   .city-pop { font-size: 10px; color: var(--dim); max-width: 100px; text-align: center; margin-top: 4px; line-height: 1.3; }
 
-  /* ── SIDEBAR ── */
-  .sidebar { display: flex; flex-direction: column; gap: 20px; }
-  .info-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
-  .info-card .ic-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-  .info-row { display: flex; flex-direction: column; gap: 3px; margin-bottom: 14px; }
-  .info-row:last-child { margin-bottom: 0; }
-  .info-row .ir-k { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
-  .info-row .ir-v { font-size: 14px; color: var(--text); font-weight: 500; }
+  /* ── INFO SECTION (premium redesign) ── */
+  .info-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; }
+  .info-card .ic-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .info-card .ic-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .parcel-list { display: flex; flex-direction: column; gap: 8px; }
-  .parcel-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
-  .parcel-row .pr-name { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 1px; }
-  .parcel-row .pr-size { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--accent2); line-height: 1; }
-  .parcel-total { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: rgba(74,158,92,0.08); border: 1px solid rgba(74,158,92,0.2); border-radius: 6px; margin-top: 8px; }
-  .parcel-total .pt-lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 2px; }
-  .parcel-total .pt-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent2); line-height: 1; }
+  /* Parcel table */
+  .parcel-table { width: 100%; border-collapse: collapse; }
+  .parcel-table tr { border-bottom: 1px solid var(--border); }
+  .parcel-table tr:last-child { border-bottom: none; }
+  .parcel-table td { padding: 11px 0; font-size: 12px; }
+  .parcel-table td.pt-label { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; width: 90px; }
+  .parcel-table td.pt-desc { color: var(--dim); font-size: 11px; }
+  .parcel-table td.pt-ac { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--accent2); text-align: right; line-height: 1; white-space: nowrap; }
+  .parcel-table tr.total-row td { padding-top: 14px; }
+  .parcel-table tr.total-row td.pt-label { color: var(--accent); }
+  .parcel-table tr.total-row td.pt-ac { font-size: 28px; color: var(--gold); }
 
-  .feature-list { display: flex; flex-direction: column; gap: 8px; }
-  .feature-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--dim); line-height: 1.4; }
-  .feature-item::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+  /* Traffic counts */
+  .traffic-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; }
+  .traffic-cell { background: var(--surface); padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; }
+  .traffic-cell .tc-road { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+  .traffic-cell .tc-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--accent2); line-height: 1; letter-spacing: -1px; }
+  .traffic-cell .tc-unit { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 2px; }
 
-  .utility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .utility-item { padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-align: center; }
-  .utility-item .ui-icon { font-size: 18px; margin-bottom: 4px; }
-  .utility-item .ui-lbl { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
-  .utility-item .ui-status { font-size: 11px; color: var(--text); margin-top: 2px; }
-  .utility-item .ui-status.ready { color: #4ade80; }
-  .utility-item .ui-status.process { color: var(--gold); }
+  /* Property details — two-column data rows */
+  .detail-table { width: 100%; display: flex; flex-direction: column; gap: 0; }
+  .detail-row { display: flex; align-items: baseline; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(30,42,30,0.7); gap: 16px; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-row .dr-k { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; flex-shrink: 0; }
+  .detail-row .dr-v { font-size: 13px; color: var(--text); font-weight: 500; text-align: right; }
 
-  .agent-card { background: linear-gradient(135deg, rgba(74,158,92,0.08) 0%, var(--card) 100%); border: 1px solid rgba(74,158,92,0.25); }
-  .agent-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: #fff; margin-bottom: 12px; }
-  .agent-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); }
-  .agent-title { font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-bottom: 14px; }
-  .contact-link { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); margin-bottom: 6px; text-decoration: none; transition: color 0.2s; }
-  .contact-link:hover { color: var(--accent); }
-  .contact-link .cl-icon { width: 20px; height: 20px; border-radius: 4px; background: var(--border); display: flex; align-items: center; justify-content: center; font-size: 10px; }
-  .cta-btn { display: block; width: 100%; margin-top: 14px; padding: 12px; background: var(--accent); color: #fff; text-align: center; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  /* Utilities — horizontal strip */
+  .utility-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; }
+  .utility-cell { background: var(--surface); padding: 16px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .utility-cell .uc-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+  .utility-cell .uc-status { font-size: 12px; font-weight: 500; }
+  .utility-cell .uc-status.ready { color: #4ade80; }
+  .utility-cell .uc-status.pending { color: var(--gold); }
+  .utility-cell .uc-dot { width: 6px; height: 6px; border-radius: 50%; margin-bottom: 2px; }
+  .utility-cell .uc-dot.ready { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+  .utility-cell .uc-dot.pending { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+
+  /* Key features */
+  .feature-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--dim); line-height: 1.5; padding: 7px 0; border-bottom: 1px solid rgba(30,42,30,0.5); }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-item .fi-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+
+  /* Contact */
+  .contact-strip { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .agent-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: #fff; flex-shrink: 0; border: 2px solid rgba(74,158,92,0.3); }
+  .agent-bio { display: flex; flex-direction: column; gap: 2px; }
+  .agent-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text); line-height: 1; letter-spacing: 0.5px; }
+  .agent-title { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
+  .contact-links { display: flex; gap: 0; border-left: 1px solid var(--border); padding-left: 40px; flex: 1; }
+  .contact-link { display: flex; flex-direction: column; gap: 2px; padding-right: 36px; text-decoration: none; border-right: 1px solid var(--border); margin-right: 36px; transition: color 0.2s; }
+  .contact-link:last-child { border-right: none; margin-right: 0; }
+  .contact-link .cl-label { font-family: 'DM Mono', monospace; font-size: 8px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  .contact-link .cl-val { font-size: 13px; color: var(--dim); font-weight: 500; transition: color 0.2s; }
+  .contact-link:hover .cl-val { color: var(--accent); }
+  .cta-btn { margin-left: auto; padding: 13px 28px; background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; border-radius: 6px; text-decoration: none; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
   .cta-btn:hover { background: var(--accent2); color: #000; }
 
   .map-placeholder { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); aspect-ratio: 16/7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 32px; }
@@ -507,39 +531,43 @@
     <!-- Available Parcels -->
     <div class="info-card">
       <div class="ic-title">Available Parcels</div>
-      <div class="parcel-list">
-        <div class="parcel-row">
-          <div><div class="pr-name">PARCEL 1</div><div style="font-size:11px;color:var(--dim);">Highway Commercial</div></div>
-          <div class="pr-size">5 AC</div>
-        </div>
-        <div class="parcel-row">
-          <div><div class="pr-name">PARCEL 2</div><div style="font-size:11px;color:var(--dim);">Warehouse / Distribution</div></div>
-          <div class="pr-size">25.79 AC</div>
-        </div>
-        <div class="parcel-row">
-          <div><div class="pr-name">PARCEL 3</div><div style="font-size:11px;color:var(--dim);">Industrial / Manufacturing</div></div>
-          <div class="pr-size">12.98 AC</div>
-        </div>
-        <div class="parcel-total">
-          <div class="pt-lbl">TOTAL SITE</div>
-          <div class="pt-val">43.77 AC</div>
-        </div>
-      </div>
+      <table class="parcel-table">
+        <tr>
+          <td class="pt-label">Parcel 1</td>
+          <td class="pt-desc">Highway Commercial</td>
+          <td class="pt-ac">5 AC</td>
+        </tr>
+        <tr>
+          <td class="pt-label">Parcel 2</td>
+          <td class="pt-desc">Warehouse / Distribution</td>
+          <td class="pt-ac">25.79 AC</td>
+        </tr>
+        <tr>
+          <td class="pt-label">Parcel 3</td>
+          <td class="pt-desc">Industrial / Manufacturing</td>
+          <td class="pt-ac">12.98 AC</td>
+        </tr>
+        <tr class="total-row">
+          <td class="pt-label">Total Site</td>
+          <td class="pt-desc" style="color:var(--muted);font-size:11px;">3 Available Parcels</td>
+          <td class="pt-ac">43.77 AC</td>
+        </tr>
+      </table>
     </div>
 
     <!-- Traffic Counts -->
     <div class="info-card">
       <div class="ic-title">Traffic Counts (2025)</div>
-      <div class="traffic-inner">
-        <div style="text-align:center;padding:14px 8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:1px;margin-bottom:4px;">I-8</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent2);line-height:1;">11,586</div>
-          <div style="font-size:9px;color:var(--muted);letter-spacing:1px;">VPD</div>
+      <div class="traffic-pair">
+        <div class="traffic-cell">
+          <div class="tc-road">Interstate 8</div>
+          <div class="tc-num">11,586</div>
+          <div class="tc-unit">Vehicles per day</div>
         </div>
-        <div style="text-align:center;padding:14px 8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:1px;margin-bottom:4px;">Trekell Rd</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent2);line-height:1;">2,896</div>
-          <div style="font-size:9px;color:var(--muted);letter-spacing:1px;">VPD</div>
+        <div class="traffic-cell">
+          <div class="tc-road">Trekell Road</div>
+          <div class="tc-num">2,896</div>
+          <div class="tc-unit">Vehicles per day</div>
         </div>
       </div>
     </div>
@@ -547,23 +575,41 @@
     <!-- Property Details -->
     <div class="info-card">
       <div class="ic-title">Property Details</div>
-      <div class="info-row"><div class="ir-k">Location</div><div class="ir-v">NE Corner Trekell & I-8</div></div>
-      <div class="info-row"><div class="ir-k">County</div><div class="ir-v">Pinal County, Arizona</div></div>
-      <div class="info-row"><div class="ir-k">Total Acreage</div><div class="ir-v">43.77± Acres</div></div>
-      <div class="info-row"><div class="ir-k">Sale Price</div><div class="ir-v">Contact Agent</div></div>
-      <div class="info-row"><div class="ir-k">I-8 Frontage</div><div class="ir-v">~½ Mile</div></div>
-      <div class="info-row"><div class="ir-k">Interchange</div><div class="ir-v">Full Diamond at I-8</div></div>
-      <div class="info-row"><div class="ir-k">Tax Parcels</div><div class="ir-v" style="font-size:12px;">511-28-007C, 007D, 008A</div></div>
+      <div class="detail-table">
+        <div class="detail-row"><span class="dr-k">Location</span><span class="dr-v">NE Corner Trekell & I-8</span></div>
+        <div class="detail-row"><span class="dr-k">County</span><span class="dr-v">Pinal County, Arizona</span></div>
+        <div class="detail-row"><span class="dr-k">Total Acreage</span><span class="dr-v">43.77± Acres</span></div>
+        <div class="detail-row"><span class="dr-k">Sale Price</span><span class="dr-v">Contact Agent</span></div>
+        <div class="detail-row"><span class="dr-k">I-8 Frontage</span><span class="dr-v">~½ Mile</span></div>
+        <div class="detail-row"><span class="dr-k">Interchange</span><span class="dr-v">Full Diamond at I-8</span></div>
+        <div class="detail-row"><span class="dr-k">Tax Parcels</span><span class="dr-v" style="font-size:11px;">511-28-007C · 007D · 008A</span></div>
+      </div>
     </div>
 
     <!-- Utilities -->
     <div class="info-card">
       <div class="ic-title">Utilities</div>
-      <div class="utility-grid">
-        <div class="utility-item"><div class="ui-icon">⚡</div><div class="ui-lbl">Power</div><div class="ui-status ready">At Site</div></div>
-        <div class="utility-item"><div class="ui-icon">💧</div><div class="ui-lbl">Sewer & Water</div><div class="ui-status process">In Process</div></div>
-        <div class="utility-item"><div class="ui-icon">🛣</div><div class="ui-lbl">I-8 Access</div><div class="ui-status ready">Full Diamond</div></div>
-        <div class="utility-item"><div class="ui-icon">🗺</div><div class="ui-lbl">Collector Road</div><div class="ui-status ready">Internal Planned</div></div>
+      <div class="utility-strip">
+        <div class="utility-cell">
+          <div class="uc-dot ready"></div>
+          <div class="uc-label">Power</div>
+          <div class="uc-status ready">At Site</div>
+        </div>
+        <div class="utility-cell">
+          <div class="uc-dot pending"></div>
+          <div class="uc-label">Sewer & Water</div>
+          <div class="uc-status pending">In Process</div>
+        </div>
+        <div class="utility-cell">
+          <div class="uc-dot ready"></div>
+          <div class="uc-label">I-8 Access</div>
+          <div class="uc-status ready">Full Diamond</div>
+        </div>
+        <div class="utility-cell">
+          <div class="uc-dot ready"></div>
+          <div class="uc-label">Collector Road</div>
+          <div class="uc-status ready">Planned</div>
+        </div>
       </div>
     </div>
 
@@ -571,30 +617,39 @@
     <div class="info-card span2">
       <div class="ic-title">Key Features</div>
       <div class="feature-cols">
-        <div class="feature-item">Full diamond interchange on I-8 with ~½ mile frontage</div>
-        <div class="feature-item">Planned industrial park — large & small buildings</div>
-        <div class="feature-item">Highway commercial pads — drive-thru & fuel users</div>
-        <div class="feature-item">Manufacturing, distribution & light industrial sites</div>
-        <div class="feature-item">Internal collector road serving all parcels</div>
-        <div class="feature-item">5-acre Valley Humane Society reserve included</div>
-        <div class="feature-item">Near several master-planned communities</div>
-        <div class="feature-item">7 miles from Casa Grande · 57 miles to Phoenix</div>
+        <div class="feature-item"><div class="fi-dot"></div>Full diamond interchange on I-8 with ~½ mile frontage</div>
+        <div class="feature-item"><div class="fi-dot"></div>Planned industrial park — large & small buildings</div>
+        <div class="feature-item"><div class="fi-dot"></div>Highway commercial pads — drive-thru & fuel users</div>
+        <div class="feature-item"><div class="fi-dot"></div>Manufacturing, distribution & light industrial sites</div>
+        <div class="feature-item"><div class="fi-dot"></div>Internal collector road serving all parcels</div>
+        <div class="feature-item"><div class="fi-dot"></div>5-acre Valley Humane Society reserve included</div>
+        <div class="feature-item"><div class="fi-dot"></div>Near several master-planned communities</div>
+        <div class="feature-item"><div class="fi-dot"></div>7 miles from Casa Grande · 57 miles to Phoenix</div>
       </div>
     </div>
 
     <!-- Contact — full width -->
-    <div class="info-card agent-card span3">
+    <div class="info-card span3" style="background:linear-gradient(90deg,rgba(74,158,92,0.05) 0%,var(--card) 100%);border-color:rgba(74,158,92,0.2);">
       <div class="ic-title">Contact</div>
-      <div class="contact-row">
+      <div class="contact-strip">
         <div class="agent-avatar">KN</div>
-        <div class="agent-info">
+        <div class="agent-bio">
           <div class="agent-name">Kameron Norwood</div>
-          <div class="agent-title">Investment Sales & Leasing</div>
+          <div class="agent-title">Investment Sales &amp; Leasing · PICOR | Cushman &amp; Wakefield</div>
         </div>
         <div class="contact-links">
-          <a class="contact-link" href="tel:+15203608510"><div class="cl-icon">📱</div>+1 520 360 8510</a>
-          <a class="contact-link" href="mailto:knorwood@picor.com"><div class="cl-icon">✉</div>knorwood@picor.com</a>
-          <a class="contact-link" href="https://picor.com" target="_blank"><div class="cl-icon">🔗</div>picor.com</a>
+          <a class="contact-link" href="tel:+15203608510">
+            <span class="cl-label">Phone</span>
+            <span class="cl-val">+1 520 360 8510</span>
+          </a>
+          <a class="contact-link" href="mailto:knorwood@picor.com">
+            <span class="cl-label">Email</span>
+            <span class="cl-val">knorwood@picor.com</span>
+          </a>
+          <a class="contact-link" href="https://picor.com" target="_blank">
+            <span class="cl-label">Web</span>
+            <span class="cl-val">picor.com</span>
+          </a>
         </div>
         <a class="cta-btn" href="mailto:knorwood@picor.com?subject=NE Corner Trekell I-8 Inquiry">Book a Call / Zoom</a>
       </div>
@@ -752,11 +807,18 @@
       </div>
     </div>
 
-    <!-- ── GOOGLE MAP EMBED ── -->
-    <div class="section-label">Location Map</div>
-    <div class="map-placeholder">
-      <div class="mp-label">PINAL COUNTY, ARIZONA</div>
-      <div class="mp-sub">NE CORNER TREKELL RD & INTERSTATE 8 · APN 511-28-007C, 007D, 008A</div>
+    <!-- ── SITE PLAN ── -->
+    <div class="section-label">Site Plan</div>
+    <div style="position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:border-color 0.2s;" onclick="openSitePlan()" onmouseenter="this.style.borderColor='var(--accent)'" onmouseleave="this.style.borderColor='var(--border)'">
+      <img id="img-site-plan" src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/site-plan.png" alt="Site Plan" style="width:100%;display:block;border-radius:var(--radius);">
+      <div style="position:absolute;bottom:12px;right:14px;background:rgba(8,10,8,0.82);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:4px 10px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;">⤢ FULLSCREEN</div>
+      <div style="position:absolute;top:12px;left:14px;background:rgba(8,10,8,0.82);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:4px 10px;font-family:'DM Mono',monospace;font-size:9px;color:#e4ede4;letter-spacing:1.5px;text-transform:uppercase;">SITE PLAN · APN 511-28-007C · 007D · 008A</div>
+    </div>
+
+    <!-- Site Plan Lightbox -->
+    <div id="siteplan-lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.96);align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeSitePlan()">
+      <button onclick="closeSitePlan()" style="position:fixed;top:20px;right:28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+      <img src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/site-plan.png" alt="Site Plan" style="max-width:95vw;max-height:92vh;object-fit:contain;border-radius:8px;box-shadow:0 40px 120px rgba(0,0,0,0.8);">
     </div>
   </div>
 </section>
@@ -1015,6 +1077,16 @@ async function uploadMedia() {
   }
 }
 
+function openSitePlan() {
+  const lb = document.getElementById('siteplan-lightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeSitePlan() {
+  document.getElementById('siteplan-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
 // ── LIGHTBOX ─────────────────────────────────────────────────────
 const LIGHTBOX_IMGS = [
   { id: 'img-site1',    caption: 'AERIAL · SUBJECT PARCEL' },
@@ -1053,6 +1125,7 @@ function lightboxNav(dir) {
 }
 
 document.addEventListener('keydown', e => {
+  if (document.getElementById('siteplan-lightbox').style.display === 'flex' && e.key === 'Escape') closeSitePlan();
   if (!document.getElementById('lightbox').classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowRight') lightboxNav(1);
