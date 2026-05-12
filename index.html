@@ -594,7 +594,7 @@
             <div class="ph-label">HBU RENDER 01</div>
             <div class="ph-tag">SUPABASE STORAGE</div>
           </div>
-          <img class="real-img hidden" id="img-hbu1" alt="HBU Render 1">
+          <img class="real-img" id="img-hbu1" src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/hbu/industrial-park.png" alt="HBU Render 1" onload="document.getElementById('ph-hbu1').style.display='none'">
           <div class="video-wrap" id="vid-hbu1">
             <video id="v-hbu1" preload="none" playsinline></video>
           </div>
@@ -625,7 +625,7 @@
             <div class="ph-label">HBU RENDER 02</div>
             <div class="ph-tag">SUPABASE STORAGE</div>
           </div>
-          <img class="real-img hidden" id="img-hbu2" alt="HBU Render 2">
+          <img class="real-img" id="img-hbu2" src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/hbu/highway-commercial.png" alt="HBU Render 2" onload="document.getElementById('ph-hbu2').style.display='none'">
           <div class="video-wrap" id="vid-hbu2">
             <video id="v-hbu2" preload="none" playsinline></video>
           </div>
@@ -656,7 +656,7 @@
             <div class="ph-label">HBU RENDER 03</div>
             <div class="ph-tag">SUPABASE STORAGE</div>
           </div>
-          <img class="real-img hidden" id="img-hbu3" alt="HBU Render 3">
+          <img class="real-img" id="img-hbu3" src="https://npmfudvtmltkincqyxny.supabase.co/storage/v1/object/public/property-media/trekell-i8/hbu/mixed-industrial.png" alt="HBU Render 3" onload="document.getElementById('ph-hbu3').style.display='none'">
           <div class="video-wrap" id="vid-hbu3">
             <video id="v-hbu3" preload="none" playsinline></video>
           </div>
@@ -990,9 +990,7 @@ const MEDIA_SLOTS = {
   'site-photo-wide':{ imgId: 'img-site-wide',      phId: 'ph-site-wide',     vEl: null             },
   'site-photo-3':   { imgId: 'img-site3',          phId: 'ph-site3',         vEl: null             },
   'site-photo-4':   { imgId: 'img-site4',          phId: 'ph-site4',         vEl: null             },
-  'hbu-render-1':   { imgId: 'img-hbu1',           phId: 'ph-hbu1',          vEl: null             },
-  'hbu-render-2':   { imgId: 'img-hbu2',           phId: 'ph-hbu2',          vEl: null             },
-  'hbu-render-3':   { imgId: 'img-hbu3',           phId: 'ph-hbu3',          vEl: null             },
+  // hbu-render-1/2/3 intentionally omitted — images hardcoded directly in HTML
   'hbu-video-1':    { imgId: null,                  phId: 'ph-hbu1',          vEl: 'v-hbu1'        },
   'hbu-video-2':    { imgId: null,                  phId: 'ph-hbu2',          vEl: 'v-hbu2'        },
   'hbu-video-3':    { imgId: null,                  phId: 'ph-hbu3',          vEl: 'v-hbu3'        },
