@@ -319,18 +319,64 @@
   .sf-grid { animation-delay: 0.05s; }
 
   @media (max-width: 900px) {
-    .hbu-render { aspect-ratio: 16/6 !important; }
-    .hbu-full-width .hbu-info { grid-template-columns: 1fr !important; }
-    main { grid-template-columns: 1fr; }
-    .image-grid, .sf-grid { grid-template-columns: 1fr 1fr; }
-    .hbu-full-width { padding: 0 20px 40px; }
-    .img-card.wide { grid-column: 1 / -1; }
-    .parcel-banner { grid-template-columns: 1fr 1fr; }
+    /* Header */
     header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
-    .hero-band { padding: 40px 20px; grid-template-columns: 1fr; }
-    main { padding: 24px 20px; }
+    .prop-nav { display: none; }
+
+    /* Hero */
+    .hero-band { padding: 32px 20px; grid-template-columns: 1fr; gap: 20px; }
+    .hero-stats { flex-direction: row; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 16px; }
+    .address-main { font-size: clamp(28px,8vw,48px); }
+
+    /* Parcel banner */
+    .parcel-banner { grid-template-columns: 1fr 1fr; }
+    .parcel-item { padding: 14px 16px; }
+
+    /* Main */
+    main { padding: 24px 20px 40px; }
+
+    /* Image grid */
+    .image-grid { grid-template-columns: 1fr; }
+    .img-card.wide { grid-column: 1 / -1; aspect-ratio: 16/9; }
+    .sf-grid { grid-template-columns: 1fr 1fr; }
+
+    /* HBU section */
+    .hbu-full-width { padding: 0 20px 40px; }
+    .hbu-render { aspect-ratio: 16/7 !important; }
+    .hbu-title { font-size: 28px; }
+
+    /* Info grid */
+    .info-grid { grid-template-columns: 1fr !important; }
+    .info-card.span2, .info-card.span3 { grid-column: span 1 !important; }
+    .traffic-pair { grid-template-columns: 1fr 1fr; }
+    .tc-num { font-size: 36px; }
+    .utility-strip { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .feature-cols { grid-template-columns: 1fr; }
+    .contact-strip { grid-template-columns: 1fr; gap: 24px; }
+    .contact-links { flex-direction: column; gap: 16px; }
+    .contact-link { padding: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .cta-btn { width: 100%; text-align: center; }
+
+    /* Corridor map */
     .corridor-line { flex-direction: column; gap: 16px; }
     .corridor-line::before { display: none; }
+
+    /* Progress photo grid — 1 column on mobile */
+    .progress-grid { grid-template-columns: 1fr !important; }
+
+    /* Footer */
+    footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .parcel-banner { grid-template-columns: 1fr 1fr; }
+    .image-grid { grid-template-columns: 1fr; }
+    .sf-grid { grid-template-columns: 1fr 1fr; }
+    .hero-band { padding: 24px 16px; }
+    .hbu-full-width { padding: 0 16px 32px; }
+    main { padding: 20px 16px; }
+    .address-main { font-size: clamp(24px,9vw,40px); }
+    .parcel-item .pi-val { font-size: 22px; }
   }
 
   /* ── FULL-WIDTH HBU SECTION ── */
@@ -826,7 +872,7 @@
 <section class="hbu-full-width" style="padding-top:40px;padding-bottom:60px;">
   <div class="hbu-full-inner">
     <div class="section-label">Site Progress Photos</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+    <div class="progress-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
 
       <!-- Row 1 -->
       <div class="img-card" onclick="openProgressLightbox(0)" style="aspect-ratio:16/9;cursor:pointer;">
