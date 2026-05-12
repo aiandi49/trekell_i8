@@ -977,9 +977,12 @@ function toggleVideo(cardId, vidId) {
   const stopBtn = card && card.querySelector('.stop-btn');
 
   if (!vidWrap || !vid || !vid.src || vid.src === window.location.href) {
-    // No video yet — pulse placeholder
-    const ph = card && card.querySelector('.img-placeholder');
-    if (ph) { ph.style.opacity = '0.5'; setTimeout(() => { ph.style.opacity = '1'; }, 200); }
+    // No video — try opening image in lightbox instead
+    const imgEl = card && card.querySelector('img.real-img');
+    if (imgEl && imgEl.src && imgEl.src !== window.location.href) {
+      const idx = LIGHTBOX_IMGS.findIndex(x => x.id === imgEl.id);
+      if (idx !== -1) { openLightbox(idx); }
+    }
     return;
   }
 
@@ -1095,6 +1098,9 @@ const LIGHTBOX_IMGS = [
   { id: 'img-site-wide',     caption: 'I-8 CORRIDOR · DRONE FOOTAGE' },
   { id: 'img-site3',         caption: 'SITE PHOTO · 03' },
   { id: 'img-site4',         caption: 'SITE PHOTO · 04' },
+  { id: 'img-hbu1',          caption: 'HBU · INDUSTRIAL PARK WAREHOUSE COMPLEX' },
+  { id: 'img-hbu2',          caption: 'HBU · HIGHWAY COMMERCIAL PAD DEVELOPMENT' },
+  { id: 'img-hbu3',          caption: 'HBU · MIXED INDUSTRIAL BUSINESS PARK' },
 ];
 let lbIndex = 0;
 
