@@ -295,7 +295,7 @@
   .map-placeholder .mp-label { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--muted); letter-spacing: 2px; }
   .map-placeholder .mp-sub { font-size: 11px; color: var(--border); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
 
-  footer { position: relative; z-index: 5; border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.5px; }
+  footer { position: relative; z-index: 5; border-top: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.8px; gap: 24px; flex-wrap: nowrap; }
 
   /* ── LOADING INDICATOR ── */
   .media-loading-bar { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: var(--border); z-index: 1000; }
@@ -419,88 +419,88 @@
     <div class="section-label">Property Photography</div>
     <div class="image-grid">
 
-      <!-- Row 1: Images 1 & 2 — Aerial aerials side by side -->
-      <div class="img-card" id="card-site1" onclick="openLightbox(0)">
-        <div class="img-placeholder" id="ph-site1">
+      <!-- Row 1: aerial-main + aerial-main-2 -->
+      <div class="img-card" id="card-aerial-main" onclick="openLightbox(0)">
+        <div class="img-placeholder" id="ph-aerial-main">
           <div class="ph-icon">🛰</div>
-          <div class="ph-label">AERIAL OVERVIEW 01</div>
+          <div class="ph-label">AERIAL MAIN</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site1" alt="Aerial Overview">
+        <img class="real-img hidden" id="img-aerial-main" alt="Aerial Main">
+        <div class="video-wrap" id="vid-aerial-main">
+          <video id="v-aerial-main" preload="none" playsinline></video>
+        </div>
         <div class="img-label-badge">AERIAL · SUBJECT PARCEL</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
+        <button class="stop-btn" onclick="stopVideo(event,'card-aerial-main','vid-aerial-main')">■ STOP</button>
       </div>
 
-      <div class="img-card" id="card-site2" onclick="openLightbox(1)">
-        <div class="img-placeholder" id="ph-site2">
+      <div class="img-card" id="card-aerial-main-2" onclick="openLightbox(1)">
+        <div class="img-placeholder" id="ph-aerial-main-2">
           <div class="ph-icon">🛰</div>
-          <div class="ph-label">AERIAL OVERVIEW 02</div>
+          <div class="ph-label">AERIAL MAIN 2</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site2" alt="Aerial Close">
+        <img class="real-img hidden" id="img-aerial-main-2" alt="Aerial Main 2">
         <div class="img-label-badge">AERIAL · TREKELL & I-8</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
       </div>
 
-      <!-- Row 2: Images 3 & 4 — Renderings side by side -->
-      <div class="img-card" id="card-site3" onclick="openLightbox(2)">
-        <div class="img-placeholder" id="ph-site3">
-          <div class="ph-icon">🏗</div>
-          <div class="ph-label">RENDERING 01</div>
+      <!-- Row 2: site-photo-1 + site-photo-2 -->
+      <div class="img-card" id="card-site1" onclick="openLightbox(2)">
+        <div class="img-placeholder" id="ph-site1">
+          <div class="ph-icon">📷</div>
+          <div class="ph-label">SITE PHOTO 01</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site3" alt="Highway Commercial Rendering">
-        <div class="img-label-badge">HIGHWAY COMMERCIAL · RENDERING</div>
+        <img class="real-img hidden" id="img-site1" alt="Site Photo 1">
+        <div class="img-label-badge">SITE PHOTO · 01</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
       </div>
 
-      <div class="img-card" id="card-site4" onclick="openLightbox(3)">
-        <div class="img-placeholder" id="ph-site4">
-          <div class="ph-icon">🏗</div>
-          <div class="ph-label">RENDERING 02</div>
+      <div class="img-card" id="card-site2" onclick="openLightbox(3)">
+        <div class="img-placeholder" id="ph-site2">
+          <div class="ph-icon">📷</div>
+          <div class="ph-label">SITE PHOTO 02</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site4" alt="Industrial Park Rendering">
-        <div class="img-label-badge">INDUSTRIAL PARK · RENDERING</div>
+        <img class="real-img hidden" id="img-site2" alt="Site Photo 2">
+        <div class="img-label-badge">SITE PHOTO · 02</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
       </div>
 
-      <!-- Row 3: Image 5 — Wide drone corridor, full width -->
-      <div class="img-card wide" id="card-aerial" onclick="openLightbox(4)">
-        <div class="img-placeholder" id="ph-aerial">
+      <!-- Row 3: site-photo-wide — full width -->
+      <div class="img-card wide" id="card-site-wide" onclick="openLightbox(4)">
+        <div class="img-placeholder" id="ph-site-wide">
           <div class="ph-icon">🚁</div>
-          <div class="ph-label">CORRIDOR AERIAL — DRONE</div>
+          <div class="ph-label">SITE WIDE</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-aerial" alt="I-8 Corridor Drone View">
-        <div class="video-wrap" id="vid-aerial">
-          <video id="v-aerial" preload="none" playsinline></video>
-        </div>
+        <img class="real-img hidden" id="img-site-wide" alt="Site Wide">
         <div class="img-label-badge">I-8 CORRIDOR · DRONE FOOTAGE</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
-        <button class="stop-btn" onclick="stopVideo(event,'card-aerial','vid-aerial')">■ STOP</button>
       </div>
 
-      <!-- Row 4: Images 6 & 7 — Logistics hub side by side -->
-      <div class="img-card" id="card-site5" onclick="openLightbox(5)">
-        <div class="img-placeholder" id="ph-site5">
-          <div class="ph-icon">🏭</div>
-          <div class="ph-label">LOGISTICS HUB 01</div>
+      <!-- Row 4: site-photo-3 + site-photo-4 -->
+      <div class="img-card" id="card-site3" onclick="openLightbox(5)">
+        <div class="img-placeholder" id="ph-site3">
+          <div class="ph-icon">📷</div>
+          <div class="ph-label">SITE PHOTO 03</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site5" alt="Logistics Hub Aerial">
-        <div class="img-label-badge">LOGISTICS HUB · WITH SUBJECT</div>
+        <img class="real-img hidden" id="img-site3" alt="Site Photo 3">
+        <div class="img-label-badge">SITE PHOTO · 03</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
       </div>
 
-      <div class="img-card" id="card-site-wide" onclick="openLightbox(6)">
-        <div class="img-placeholder" id="ph-site-wide">
-          <div class="ph-icon">🏭</div>
-          <div class="ph-label">LOGISTICS HUB 02</div>
+      <div class="img-card" id="card-site4" onclick="openLightbox(6)">
+        <div class="img-placeholder" id="ph-site4">
+          <div class="ph-icon">📷</div>
+          <div class="ph-label">SITE PHOTO 04</div>
           <div class="ph-tag">LOADING…</div>
         </div>
-        <img class="real-img hidden" id="img-site-wide" alt="Logistics Hub Drone">
-        <div class="img-label-badge">LOGISTICS HUB · DRONE VIEW</div>
+        <img class="real-img hidden" id="img-site4" alt="Site Photo 4">
+        <div class="img-label-badge">SITE PHOTO · 04</div>
         <div class="zoom-hint">⤢ FULLSCREEN</div>
       </div>
 
@@ -824,8 +824,8 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <span>PICOR Commercial Real Estate Services · Cushman & Wakefield Alliance · 5151 E Broadway Suite 115, Tucson AZ 85711</span>
-  <span>© 2025 Cushman & Wakefield · Media via Supabase Storage · All information subject to change · 5/6/2026</span>
+  <span>PICOR Commercial Real Estate Services · Cushman &amp; Wakefield Alliance · 5151 E Broadway Suite 115, Tucson AZ 85711</span>
+  <span style="white-space:nowrap;">© 2026 Cushman &amp; Wakefield · All information subject to change</span>
 </footer>
 
 <!-- ══ ADMIN UPLOAD PANEL ══ -->
@@ -833,15 +833,16 @@
 <div class="admin-panel" id="adminPanel">
   <h3>⬡ SUPABASE MEDIA UPLOADER</h3>
   <select id="uploadRole">
-    <option value="aerial-main">Aerial Main (wide photo/video)</option>
+    <option value="aerial-main">Aerial Main</option>
+    <option value="aerial-main-2">Aerial Main 2</option>
     <option value="site-photo-1">Site Photo 01</option>
     <option value="site-photo-2">Site Photo 02</option>
+    <option value="site-photo-wide">Site Photo Wide</option>
     <option value="site-photo-3">Site Photo 03</option>
     <option value="site-photo-4">Site Photo 04</option>
-    <option value="site-photo-5">Site Photo 05</option>
-    <option value="hbu-render-1">HBU Render 01 (image)</option>
-    <option value="hbu-render-2">HBU Render 02 (image)</option>
-    <option value="hbu-render-3">HBU Render 03 (image)</option>
+    <option value="hbu-render-1">HBU Render 01</option>
+    <option value="hbu-render-2">HBU Render 02</option>
+    <option value="hbu-render-3">HBU Render 03</option>
     <option value="hbu-video-1">HBU Flyover Video 01</option>
     <option value="hbu-video-2">HBU Flyover Video 02</option>
     <option value="hbu-video-3">HBU Flyover Video 03</option>
@@ -864,19 +865,19 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 // ── Media slot map: role → DOM ids ──────────────────────────────
 const MEDIA_SLOTS = {
-  'site-photo-1':   { imgId: 'img-site1',     phId: 'ph-site1',     vEl: null        },
-  'site-photo-2':   { imgId: 'img-site2',     phId: 'ph-site2',     vEl: null        },
-  'site-photo-3':   { imgId: 'img-site3',     phId: 'ph-site3',     vEl: null        },
-  'site-photo-4':   { imgId: 'img-site4',     phId: 'ph-site4',     vEl: null        },
-  'aerial-main':    { imgId: 'img-aerial',    phId: 'ph-aerial',    vEl: 'v-aerial'  },
-  'hbu-render-1':   { imgId: 'img-site5',     phId: 'ph-site5',     vEl: null        },
-  'hbu-render-2':   { imgId: 'img-site-wide', phId: 'ph-site-wide', vEl: null        },
-  'hbu-render-3':   { imgId: 'img-hbu1',      phId: 'ph-hbu1',      vEl: null        },
-  'site-photo-wide':{ imgId: 'img-hbu2',      phId: 'ph-hbu2',      vEl: null        },
-  'site-photo-5':   { imgId: 'img-hbu3',      phId: 'ph-hbu3',      vEl: null        },
-  'hbu-video-1':    { imgId: null,             phId: 'ph-hbu1',      vEl: 'v-hbu1'   },
-  'hbu-video-2':    { imgId: null,             phId: 'ph-hbu2',      vEl: 'v-hbu2'   },
-  'hbu-video-3':    { imgId: null,             phId: 'ph-hbu3',      vEl: 'v-hbu3'   },
+  'aerial-main':    { imgId: 'img-aerial-main',   phId: 'ph-aerial-main',   vEl: 'v-aerial-main' },
+  'aerial-main-2':  { imgId: 'img-aerial-main-2', phId: 'ph-aerial-main-2', vEl: null             },
+  'site-photo-1':   { imgId: 'img-site1',          phId: 'ph-site1',         vEl: null             },
+  'site-photo-2':   { imgId: 'img-site2',          phId: 'ph-site2',         vEl: null             },
+  'site-photo-wide':{ imgId: 'img-site-wide',      phId: 'ph-site-wide',     vEl: null             },
+  'site-photo-3':   { imgId: 'img-site3',          phId: 'ph-site3',         vEl: null             },
+  'site-photo-4':   { imgId: 'img-site4',          phId: 'ph-site4',         vEl: null             },
+  'hbu-render-1':   { imgId: 'img-hbu1',           phId: 'ph-hbu1',          vEl: null             },
+  'hbu-render-2':   { imgId: 'img-hbu2',           phId: 'ph-hbu2',          vEl: null             },
+  'hbu-render-3':   { imgId: 'img-hbu3',           phId: 'ph-hbu3',          vEl: null             },
+  'hbu-video-1':    { imgId: null,                  phId: 'ph-hbu1',          vEl: 'v-hbu1'        },
+  'hbu-video-2':    { imgId: null,                  phId: 'ph-hbu2',          vEl: 'v-hbu2'        },
+  'hbu-video-3':    { imgId: null,                  phId: 'ph-hbu3',          vEl: 'v-hbu3'        },
 };
 
 // ── Public URL helper ────────────────────────────────────────────
@@ -1087,13 +1088,13 @@ function closeSitePlan() {
 
 // ── LIGHTBOX ─────────────────────────────────────────────────────
 const LIGHTBOX_IMGS = [
-  { id: 'img-site1',    caption: 'AERIAL · SUBJECT PARCEL' },
-  { id: 'img-site2',    caption: 'AERIAL · TREKELL & I-8' },
-  { id: 'img-site3',    caption: 'HIGHWAY COMMERCIAL · RENDERING' },
-  { id: 'img-site4',    caption: 'INDUSTRIAL PARK · RENDERING' },
-  { id: 'img-aerial',   caption: 'I-8 CORRIDOR · DRONE FOOTAGE' },
-  { id: 'img-site5',    caption: 'LOGISTICS HUB · WITH SUBJECT' },
-  { id: 'img-site-wide',caption: 'LOGISTICS HUB · DRONE VIEW' },
+  { id: 'img-aerial-main',   caption: 'AERIAL · SUBJECT PARCEL' },
+  { id: 'img-aerial-main-2', caption: 'AERIAL · TREKELL & I-8' },
+  { id: 'img-site1',         caption: 'SITE PHOTO · 01' },
+  { id: 'img-site2',         caption: 'SITE PHOTO · 02' },
+  { id: 'img-site-wide',     caption: 'I-8 CORRIDOR · DRONE FOOTAGE' },
+  { id: 'img-site3',         caption: 'SITE PHOTO · 03' },
+  { id: 'img-site4',         caption: 'SITE PHOTO · 04' },
 ];
 let lbIndex = 0;
 
